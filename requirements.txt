@@ -1,0 +1,10 @@
+# No external dependencies required for core functionality
+# All modules used are Python standard library:
+#   os, sys, re, shutil, json, imaplib, email, datetime, pathlib,
+#   dataclasses, configparser, argparse
+#
+# Optional: for GUI (wi_dialog.py)
+# tkinter  # Included with Python on Windows
+#
+# Optional: for progress bar
+# tqdm  # pip install tqdm
