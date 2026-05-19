@@ -1,0 +1,14 @@
+[project]
+name = "wi-search"
+version = "1.0.0"
+description = "Wyszukiwarka Korespondencji WI - Python port"
+requires-python = ">=3.7"
+license = {text = "Private"}
+
+[project.scripts]
+wi-search = "wi_search:main"
+wi-dialog = "wi_dialog:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
