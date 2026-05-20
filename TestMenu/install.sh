@@ -1,7 +1,7 @@
 #!/bin/bash
 # Install TestMenu.oxt extension
 cd "$(dirname "$0")"
-EXTENSION="$PWD/TestMenu.oxt"
+EXTENSION="$PWD/../WI_Menu.oxt"
 
 if command -v unopkg &> /dev/null; then
     echo "Installing TestMenu extension..."

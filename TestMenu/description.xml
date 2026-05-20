@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description xmlns="http://openoffice.org/extensions/description/2006" xmlns:d="http://openoffice.org/extensions/description/2006" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <identifier value="org.cdblue999.TestMenu"/>
+    <identifier value="org.cdblue999.WI_Menu"/>
     <version value="1.0.0"/>
     <publisher>
         <name xlink:href="https://github.com/cdblue999">cdblue999</name>
@@ -8,9 +8,4 @@
     <display-name>
         <name>Test Menu</name>
     </display-name>
-    <registration>
-        <simple-license accept-by="admin" default-accept-scope="shared" suppress-on-update="true">
-            <license-text xlink:href="" lang="en-US">MIT License</license-text>
-        </simple-license>
-    </registration>
 </description>
