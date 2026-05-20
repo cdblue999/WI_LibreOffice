@@ -8,6 +8,10 @@
                     <value xml:lang="pl">WI_Menu</value>
                 </prop>
                 <node oor:name="Submenu" oor:op="fuse">
+                    <node oor:name="m_ai" oor:op="fuse">
+                        <prop oor:name="Title" oor:type="xs:string"><value xml:lang="en-US">Analyze selection with AI</value></prop>
+                        <prop oor:name="URL" oor:type="xs:string"><value>macro:///Standard.Module1.AnalyzeWithAI</value></prop>
+                    </node>
                     <node oor:name="m1" oor:op="fuse">
                         <prop oor:name="Title" oor:type="xs:string"><value xml:lang="en-US">Hello World</value></prop>
                         <prop oor:name="URL" oor:type="xs:string"><value>macro:///Standard.Module1.HelloWorld</value></prop>

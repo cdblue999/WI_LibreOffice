@@ -32,4 +32,59 @@ Sub SetCellColor
         MsgBox "This macro only works in Calc spreadsheets.", 48, "Test Menu"
     End If
 End Sub
+
+Sub AnalyzeWithAI
+    Dim oDoc As Object
+    Dim oSel As Object
+    Dim sText As String
+    Dim sAPIKey As String
+    Dim sURL As String
+    Dim sCmd As String
+    Dim sTempFile As String
+    Dim sResult As String
+    Dim nFile As Integer
+    
+    ' TODO: Replace with your Google Gemini API Key
+    sAPIKey = "YOUR_GEMINI_API_KEY"
+    
+    If sAPIKey = "YOUR_GEMINI_API_KEY" Then
+        MsgBox "Please set your Gemini API Key in the macro source code.", 48, "WI_Menu"
+        Exit Sub
+    End If
+    
+    oDoc = ThisComponent
+    On Error Resume Next
+    oSel = oDoc.CurrentController.Selection(0)
+    sText = oSel.String
+    On Error Goto 0
+    
+    If Len(sText) = 0 Then
+        MsgBox "Please select some text first.", 48, "WI_Menu"
+        Exit Sub
+    End If
+    
+    ' Escape text for JSON
+    sText = Replace(sText, """", "\""")
+    sText = Replace(sText, Chr(10), "\n")
+    sText = Replace(sText, Chr(13), "")
+    
+    sTempFile = "/tmp/wi_ai_response.txt"
+    sURL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" & sAPIKey
+    
+    ' Use curl + python3 to parse JSON safely
+    sCmd = "curl -s -X POST """ & sURL & """ -H ""Content-Type: application/json"" -d ""{""contents"":[{""parts"":[{""text"":""Analyze and summarize: " & sText & """}]}]}"" | python3 -c ""import sys,json; d=json.load(sys.stdin); print(d['candidates'][0]['content']['parts'][0]['text'])"" > " & sTempFile
+    
+    Shell("/bin/bash", 0, "-c """ & sCmd & """", True)
+    
+    nFile = FreeFile
+    Open sTempFile For Input As #nFile
+    sResult = Input(LOF(nFile), #nFile)
+    Close #nFile
+    
+    If Len(sResult) > 0 Then
+        MsgBox sResult, 64, "AI Analysis"
+    Else
+        MsgBox "Analysis failed. Check API Key or internet connection.", 16, "WI_Menu"
+    End If
+End Sub
 </script:module>
