@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Module1" script:language="StarBasic">
+Sub HelloWorld
+    MsgBox "Hello from Test Menu!", 64, "Test Menu"
+End Sub
+
+Sub InsertText
+    Dim oDoc As Object
+    Dim oText As Object
+    Dim oCursor As Object
+    
+    oDoc = ThisComponent
+    oText = oDoc.Text
+    oCursor = oText.createTextCursor()
+    
+    oText.insertString(oCursor, "Inserted by Test Menu", False)
+End Sub
+
+Sub SetCellColor
+    Dim oDoc As Object
+    Dim oSheet As Object
+    Dim oCell As Object
+    
+    oDoc = ThisComponent
+    If oDoc.supportsService("com.sun.star.sheet.SpreadsheetDocument") Then
+        oSheet = oDoc.CurrentController.ActiveSheet
+        oCell = oSheet.getCellByPosition(0, 0)
+        oCell.CellBackColor = RGB(255, 255, 0)
+        MsgBox "Cell A1 colored yellow!", 64, "Test Menu"
+    Else
+        MsgBox "This macro only works in Calc spreadsheets.", 48, "Test Menu"
+    End If
+End Sub
+</script:module>

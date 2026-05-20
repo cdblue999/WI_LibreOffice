@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oor:name="Addons" oor:package="org.openoffice.Office">
+    <node oor:name="AddonUI">
+        <node oor:name="OfficeMenuBar">
+            <node oor:name="org.cdblue999.TestMenu" oor:op="replace">
+                <prop oor:name="Title" oor:type="xs:string">
+                    <value xml:lang="en-US">~Test</value>
+                    <value xml:lang="pl">~Test</value>
+                </prop>
+                <prop oor:name="Context" oor:type="xs:string">
+                    <value>*</value>
+                </prop>
+                <prop oor:name="Submenu" oor:type="xs:boolean">
+                    <value>true</value>
+                </prop>
+                <node oor:name="Submenu">
+                    <node oor:name="TestMenuItem1" oor:op="replace">
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en-US">Hello World</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>macro:///Standard.Module1.HelloWorld</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                        <prop oor:name="ImageIdentifier" oor:type="xs:string">
+                            <value>%origin%/icons/helloworld.png</value>
+                        </prop>
+                    </node>
+                    <node oor:name="TestMenuItem2" oor:op="replace">
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en-US">Insert Text</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>macro:///Standard.Module1.InsertText</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                    </node>
+                    <node oor:name="TestSeparator1" oor:op="replace">
+                        <prop oor:name="SeparatorLine" oor:type="xs:boolean">
+                            <value>true</value>
+                        </prop>
+                    </node>
+                    <node oor:name="TestMenuItem3" oor:op="replace">
+                        <prop oor:name="Title" oor:type="xs:string">
+                            <value xml:lang="en-US">Set Cell Color</value>
+                        </prop>
+                        <prop oor:name="URL" oor:type="xs:string">
+                            <value>macro:///Standard.Module1.SetCellColor</value>
+                        </prop>
+                        <prop oor:name="Target" oor:type="xs:string">
+                            <value>_self</value>
+                        </prop>
+                    </node>
+                </node>
+            </node>
+        </node>
+    </node>
+</oor:component-data>
